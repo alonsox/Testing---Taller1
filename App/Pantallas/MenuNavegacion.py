@@ -1,30 +1,35 @@
-from Pantallas.PantallaHandler import PantallaHandler
-from Utilidades.Otros import limpiarPantalla
+from typing import Any
+from Pantallas.Mostrable import Mostrable
+
+class OpcionNavegacion:
+    def __init__(self, ruta: str, mensaje: str, mostrable: Mostrable) -> None:
+        self.ruta: str = ruta
+        self.mensaje: str = mensaje
+        self.mostrable: Mostrable = mostrable
 
 
-class OpcionMenu:
-    def __init__(self, mensaje: str, handler: PantallaHandler):
-        self.mensaje = mensaje
-        self.handler = handler
-
-
-class MenuNavegacion:
+class MenuNavegacion(Mostrable):
     def __init__(self) -> None:
-        self._titulo: str = 'Menu'
-        self._opciones: list[OpcionMenu] = []
+        self._descripcion: str = 'Menu Navegación'
+        self._opciones: list[OpcionNavegacion] = []
 
-    def titulo(self, titulo: str) -> 'MenuNavegacion':
-        self._titulo = titulo
+    def descripcion(self, des: str) -> 'MenuNavegacion':
+        self._descripcion = des
         return self
 
-    def agregarOpcion(self, mensaje: str, handler: PantallaHandler) -> 'MenuNavegacion':
-        self._opciones.append(OpcionMenu(mensaje, handler))
+    def agregar(self, ruta: str, pantalla: Mostrable, mensaje: str = '') -> 'MenuNavegacion':
+        mensaje = mensaje if mensaje else ruta
+        self._opciones.append(OpcionNavegacion(ruta, mensaje, pantalla))
         return self
 
-    def mostrar(self) -> PantallaHandler:
+    def navegar(self, ruta: str, data: Any = None) -> None:
+        for opcion in self._opciones:
+            if opcion.ruta == ruta:
+                opcion.mostrable.mostrar(data)
+
+    def mostrar(self, data:Any = None) -> None:
         # MOSTRAR OPCIONES
-        limpiarPantalla()
-        print(self._titulo, end='\n\n')
+        print(self._descripcion, end='\n\n')
         for indice, opcion in enumerate(self._opciones):
             print("({0}) {1}".format(indice + 1, opcion.mensaje))
 
@@ -43,4 +48,4 @@ class MenuNavegacion:
                     len(self._opciones)))
 
         # DEVOLVER EL HANDLER ASOCIADO A LA OPCION
-        return self._opciones[opcion - 1].handler
+        return self._opciones[opcion - 1].mostrable.mostrar()

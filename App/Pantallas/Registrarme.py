@@ -1,19 +1,19 @@
-from getpass import getpass
 from typing import Any
+from getpass import getpass
 from Dominio.Usuario import Usuario
 from Dominio.Correo import Correo
 from Dominio.Contraseña import Contraseña
 from Dominio.RepositorioUsuarios import RepositorioUsuarios
-from Pantallas.PantallaHandler import PantallaHandler
+from Pantallas.Pantalla import Pantalla
 from Utilidades.Otros import limpiarPantalla, tryWhileError
 
 
-class RegistrarmeHandler(PantallaHandler):
+class Registrarme(Pantalla):
     def __init__(self, repoUsuarios: RepositorioUsuarios) -> None:
         super().__init__()
         self._repoUsuarios = repoUsuarios
 
-    def handle(self, data: Any = None) -> None:
+    def mostrar(self, data: Any = None) -> None:
         limpiarPantalla()
         print('REGISTRAR NUEVO USUARIO', end='\n\n')
 
@@ -23,7 +23,7 @@ class RegistrarmeHandler(PantallaHandler):
         usuario = Usuario(correo, contraseña)
 
         self._repoUsuarios.guardar(usuario)
-        self.next(usuario)
+        self.navegar('imc', usuario)
 
     def _leerCorreo(self) -> Correo:
         correo = Correo(input("Correo: "))

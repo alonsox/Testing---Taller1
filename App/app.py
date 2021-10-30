@@ -1,27 +1,28 @@
+from Pantallas.Registrarme import Registrarme
+from Pantallas.Salir import Salir
 from Dominio.RepositorioUsuariosCSV import RepositorioUsuariosCSV
-from Pantallas.MenuNavegacion import MenuNavegacion
-from Pantallas.MenuPrincipal import MenuPrincipalHandler
-from Pantallas.CalcularImc import CalcularImcHandler
-from Pantallas.Registrarme import RegistrarmeHandler
-from Pantallas.Salir import SalirHandler
+from Pantallas.MenuDeslogueado import MenuDeslogueado
+from Pantallas.CalcularImc import CalcularImc
 
 # CONFIGURACION DEPENDENCIAS
 repo = RepositorioUsuariosCSV('DB/usuarios.csv')
 
-# CONFIGURACION PANTALLAS
-imc = CalcularImcHandler()
-registrarme = RegistrarmeHandler(repo)
-salir = SalirHandler()
-
-menu = MenuNavegacion() \
-    .titulo('Menu Principal') \
-    .agregarOpcion('Registrarme', registrarme) \
-    .agregarOpcion('Salir', salir)
-
-menuPrincipal = MenuPrincipalHandler(menu)
+# CREAR PANTALLAS
+imc = CalcularImc()
+salir = Salir()
+registrarme = Registrarme(repo)
+menuDeslogueado = MenuDeslogueado()
 
 # NAVEGACION
-registrarme.setNext(imc).setNext(menuPrincipal)
+registrarme.navMenu() \
+    .agregar('imc', imc) \
+
+imc.navMenu() \
+    .agregar('menu_deslogueado', menuDeslogueado) \
+
+menuDeslogueado.navMenu() \
+    .agregar('registrarme', registrarme, 'Registrarme')\
+    .agregar('salir', salir, 'Salir') \
 
 # INICIAR APLICACION
-menuPrincipal.handle()
+menuDeslogueado.mostrar()
