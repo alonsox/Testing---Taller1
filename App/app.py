@@ -3,6 +3,10 @@ from Pantallas.Salir import Salir
 from Dominio.RepositorioUsuariosCSV import RepositorioUsuariosCSV
 from Pantallas.MenuDeslogueado import MenuDeslogueado
 from Pantallas.CalcularImc import CalcularImc
+from Pantallas.CalcularImc import CalcularImc
+from Pantallas.MenuDeslogueado import MenuDeslogueado
+from Pantallas.Registrarme import Registrarme
+from Pantallas.Salir import Salir
 
 # CONFIGURACION DEPENDENCIAS
 repo = RepositorioUsuariosCSV('DB/usuarios.csv')

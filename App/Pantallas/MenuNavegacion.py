@@ -7,7 +7,6 @@ class OpcionNavegacion:
         self.mensaje: str = mensaje
         self.mostrable: Mostrable = mostrable
 
-
 class MenuNavegacion(Mostrable):
     def __init__(self) -> None:
         self._descripcion: str = 'Menu Navegación'
