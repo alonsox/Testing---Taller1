@@ -1,7 +1,4 @@
-from Dominio.Usuario import Usuario
-from Dominio.Correo import Correo
-from Dominio.Contraseña import Contraseña
-from Dominio.RepositorioUsuariosMemoria import RepositorioUsuariosMemoria
+from Dominio.RepositorioUsuariosCSV import RepositorioUsuariosCSV
 from Pantallas.MenuNavegacion import MenuNavegacion
 from Pantallas.MenuPrincipal import MenuPrincipalHandler
 from Pantallas.CalcularImc import CalcularImcHandler
@@ -9,8 +6,7 @@ from Pantallas.Registrarme import RegistrarmeHandler
 from Pantallas.Salir import SalirHandler
 
 # CONFIGURACION DEPENDENCIAS
-repo = RepositorioUsuariosMemoria()
-repo.guardar(Usuario(Correo('correo@gmail.com'), Contraseña('contraseña')))
+repo = RepositorioUsuariosCSV('DB/usuarios.csv')
 
 # CONFIGURACION PANTALLAS
 imc = CalcularImcHandler()
