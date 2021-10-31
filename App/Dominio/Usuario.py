@@ -8,7 +8,7 @@ class Usuario:
         self._contraseña = contraseña
 
     def esContraseñaValida(self, pwd: str) -> bool:
-        return self._contraseña.valor() == pwd
+        return self._contraseña.validar(pwd)
 
     def correo(self) -> str:
         return self._correo.valor()

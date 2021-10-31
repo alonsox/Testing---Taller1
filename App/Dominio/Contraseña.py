@@ -10,3 +10,7 @@ class Contraseña(ValueObject[str]):
             raise Exception('La contraseña debe tener entre 4 y 20 caracteres')
 
         super().__init__(pwd)
+
+
+    def validar(self, pwd: str):
+        return self._valor() == pwd
