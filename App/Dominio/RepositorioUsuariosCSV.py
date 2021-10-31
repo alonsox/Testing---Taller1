@@ -1,8 +1,12 @@
 from typing import Union
+from Dominio.RepositorioUsuarios import RepositorioUsuarios
 from Dominio.Usuario import Usuario
 
 
-class RepositorioUsuarios:
+class RepositorioUsuariosCSV(RepositorioUsuarios):
+    def __init__(self) -> None:
+        pass 
+
     def guardar(self, usuario: Usuario) -> None:
         pass
 
