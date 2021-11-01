@@ -1,11 +1,12 @@
-from typing import Any
+from typing import Any, NamedTuple
 from Pantallas.Mostrable import Mostrable
 
-class OpcionNavegacion:
-    def __init__(self, ruta: str, mensaje: str, mostrable: Mostrable) -> None:
-        self.ruta: str = ruta
-        self.mensaje: str = mensaje
-        self.mostrable: Mostrable = mostrable
+
+class OpcionNavegacion(NamedTuple):
+    ruta: str
+    mensaje: str
+    mostrable: Mostrable
+
 
 class MenuNavegacion(Mostrable):
     def __init__(self) -> None:
@@ -26,7 +27,7 @@ class MenuNavegacion(Mostrable):
             if opcion.ruta == ruta:
                 opcion.mostrable.mostrar(data)
 
-    def mostrar(self, data:Any = None) -> None:
+    def mostrar(self, data: Any = None) -> None:
         # MOSTRAR OPCIONES
         print(self._descripcion, end='\n\n')
         for indice, opcion in enumerate(self._opciones):
