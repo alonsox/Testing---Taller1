@@ -32,7 +32,8 @@ ingresar.navMenu() \
     .agregarRuta('menu_deslogueado', menuDeslogueado) \
 
 registrarme.navMenu() \
-    .agregarRuta('imc', imc) \
+    .agregarRuta('dashboard', imc) \
+    .agregarRuta('menu_deslogueado', menuDeslogueado) \
 
 imc.navMenu() \
     .agregarRuta('menu_logueado', menuLogueado) \

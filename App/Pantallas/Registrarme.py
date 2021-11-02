@@ -1,5 +1,9 @@
 from typing import Any
 from getpass import getpass
+from Dominio.Apellido import Apellido
+from Dominio.Edad import Edad
+from Dominio.Nombre import Nombre
+from Dominio.Sexo import Sexo
 from Dominio.Usuario import Usuario
 from Dominio.Correo import Correo
 from Dominio.Contraseña import Contraseña
@@ -17,13 +21,27 @@ class Registrarme(Pantalla):
         self.limpiar()
         print('REGISTRAR NUEVO USUARIO', end='\n\n')
 
+        # LEER DATOS DEL USUARIO
+        nombre = tryWhileError(lambda: Nombre(input('Nombre: ')))
+        apellido = tryWhileError(lambda: Apellido(input('Apellido: ')))
         correo = tryWhileError(self._leerCorreo)
+        edad = tryWhileError(lambda: Edad(int(input('Edad: '))))    # TODO: revisar cuando edad no es un numero
+        sexo = tryWhileError(lambda: Sexo(input('Sexo: ')))
         contraseña = tryWhileError(lambda: Contraseña(getpass("Contraseña: ")))
 
-        usuario = Usuario(correo, contraseña)
+        # CREAR USUARIO
+        usuario = Usuario(correo, contraseña, nombre, apellido, edad, sexo)
 
-        self._repoUsuarios.guardar(usuario)
-        self.navegar('imc', usuario)
+        # GUARDAR USUARIO
+        try:
+            self._repoUsuarios.guardar(usuario)
+            print('Usuario creado correctamente')
+            print('Presione enter para continuar...')
+            self.navegar('menu_deslogueado', usuario)
+        except:
+            print('Hubo un error al crear el usuario.')
+            print('Presione enter para volver al menu principal...')
+            self.navegar('menu_deslogueado')
 
     def _leerCorreo(self) -> Correo:
         correo = Correo(input("Correo: "))
