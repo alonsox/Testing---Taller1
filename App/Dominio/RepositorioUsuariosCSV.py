@@ -23,10 +23,9 @@ class RepositorioUsuariosCSV(RepositorioUsuarios):
 
     def guardar(self, usuario: Usuario) -> None:
         # VERIFICA QUE EL CORREO NO ESTE EN USO
-        correo = usuario.correo()
-        if self.buscar(correo):
+        if self.buscar(str(usuario.correo)):
             raise Exception(
-                'El usuario con correo {0} ya existe'.format(correo))
+                'El usuario con correo {0} ya existe'.format(usuario.correo))
 
         # GUARDA EL USUARIO
         with open(self._rutaArchivo, mode='a') as archivoUsuarios:
