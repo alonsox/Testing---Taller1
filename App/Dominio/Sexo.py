@@ -1,4 +1,3 @@
-import re
 from Dominio.ValueObject import ValueObject
 
 class Sexo(ValueObject[str]):
@@ -8,7 +7,13 @@ class Sexo(ValueObject[str]):
             raise Exception('El sexo debe ser un string')
 
         # VALIDAR QUE EL SEXO ESTE EN FORMATO (F/M)
-        if sexo != 'F' or sexo != 'M':
+        if sexo.upper() != 'F' or sexo.upper() != 'M':
             raise Exception('El sexo debe indicarse como Femenino o Masculino en formato F o M respectivamente')
 
-        super().__init__(sexo)
+        super().__init__(sexo.upper())
+ 
+    def esFemenino(self) -> bool:
+        return self.valor() == 'F'
+
+    def esMasculino(self) -> bool:
+        return self.valor() == 'M'

@@ -5,29 +5,42 @@ from Dominio.Sexo import Sexo
 class IMC:
     def __init__(self, altura: Altura, peso: Peso, sexo: Sexo) -> None:
         # CALCULA IMC
-        valor_imc = round(peso/altura**2,1)
 
-        if sexo == 'F':
+        self._altura = altura
+        self._peso = peso
+        self._sexo = sexo
+        
+    
+    def calcularIMC(self):
+        return round(peso.valor()/altura.valor()**2,1)
+
+    def evaluarIMC(self):
+         
+        valor_imc = self.calcularIMC()
+
+        if sexo.esFemenino():
             if valor_imc < 20:
-                print('Bajo peso')
+                return 'Bajo peso'
             elif valor_imc > 20 and valor_imc <= 23.9:
-                print('Normal')
+                return 'Normal'
             elif valor_imc > 23.9 and valor_imc <= 28.9:
-                print('Obesidad leve')
+                return 'Obesidad leve'
             elif valor_imc > 28.9 and valor_imc <= 37:
-                print('Obesidad severa')
+                return 'Obesidad severa'
             else:
-                print('Obesidad muy severa')
-        if sexo == 'M':
-            if valor_imc < 20:
-                print('Bajo peso')
-            elif valor_imc > 20 and valor_imc <= 24.9:
-                print('Normal')
-            elif valor_imc > 24.9 and valor_imc <= 29.9:
-                print('Obesidad leve')
-            elif valor_imc > 29.9 and valor_imc <= 40:
-                print('Obesidad severa')
-            else:
-                print('Obesidad muy severa')
+                return 'Obesidad muy severa'
 
-        super().__init__(nombre)
+        if sexo.esMasculino():
+            if valor_imc < 20:
+                return 'Bajo peso'
+            elif valor_imc > 20 and valor_imc <= 24.9:
+                return 'Normal'
+            elif valor_imc > 24.9 and valor_imc <= 29.9:
+                return 'Obesidad leve'
+            elif valor_imc > 29.9 and valor_imc <= 40:
+                return 'Obesidad severa'
+            else:
+                return 'Obesidad muy severa'
+ 
+
+
