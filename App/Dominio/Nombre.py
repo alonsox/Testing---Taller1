@@ -7,7 +7,7 @@ class Nombre(ValueObject[str]):
         if type(nombre) != type(''):
             raise Exception('El nombre debe ser un string')
 
-        # VALIDAR QUE EL CORREO NO ESTA VACÍO
+        # VALIDAR QUE EL NOMBRE NO ESTA VACÍO
         if not correo.strip():
             raise Exception('El nombre no puede estar vacío')
 
