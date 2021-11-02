@@ -10,3 +10,6 @@ class ValueObject(Generic[T]):
 
     def valor(self) -> T:
         return self._valor
+
+    def __str__(self) -> str:
+        return str(self.valor())
