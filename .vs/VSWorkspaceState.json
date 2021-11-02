@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\App",
+    "\\App\\Dominio",
+    "\\App\\Pantallas",
+    "\\App\\Utilidades"
   ],
-  "SelectedNode": "\\C:\\Users\\nmcab\\Source\\Repos\\Testing-Taller1",
+  "SelectedNode": "\\App\\Dominio\\ValueObject.py",
   "PreviewInSolutionExplorer": false
 }
