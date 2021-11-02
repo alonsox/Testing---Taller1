@@ -7,7 +7,6 @@ class Sexo(ValueObject[str]):
             raise Exception('El sexo debe ser un string')
 
         # VALIDAR QUE EL SEXO ESTE EN FORMATO (F/M)
-        print('Sexo recibido: [{0}]'.format(sexo))
         if (sexo.upper()) != 'F' and (sexo.upper()) != 'M':
             raise Exception('El sexo debe indicarse como Femenino o Masculino en formato F o M respectivamente')
 
