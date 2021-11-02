@@ -1,8 +1,6 @@
 import csv
 import os
 from typing import Union
-from Dominio.Contraseña import Contraseña
-from Dominio.Correo import Correo
 from Dominio.RepositorioUsuarios import RepositorioUsuarios
 from Dominio.Usuario import Usuario
 
@@ -47,4 +45,13 @@ class RepositorioUsuariosCSV(RepositorioUsuarios):
 
             for row in reader:
                 if (row['correo'] == correo):
-                    return Usuario(Correo(row['correo']), Contraseña(row['contraseña']))
+                    return Usuario.of(
+                        row['correo'],
+                        row['contraseña'],
+                        row['nombre'],
+                        row['apellido'],
+                        int(row['edad']),
+                        row['sexo'],
+                    )
+            else:
+                return None

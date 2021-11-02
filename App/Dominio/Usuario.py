@@ -28,3 +28,24 @@ class Usuario:
     def nombreCompleto(self) -> str:
         return "{0}, {1}".format(self.apellido, self.nombre)
 
+    def of(correo: str,
+           contraseña: str,
+           nombre: str,
+           apellido: str,
+           edad: int,
+           sexo: str,
+           ) -> 'Usuario':
+        """
+        Crea un nuevo usuario desde tipos base.
+
+        NOTA: Usar este método solo para reconstituir usuarios desde un almacenamiento
+        como un archivo CSV.
+        """
+        return Usuario(
+            Correo(correo),
+            Contraseña(contraseña, raw=True),
+            Nombre(nombre),
+            Apellido(apellido),
+            Edad(edad),
+            Sexo(sexo)
+        )

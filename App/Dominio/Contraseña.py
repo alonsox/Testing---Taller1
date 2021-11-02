@@ -6,21 +6,32 @@ class Contraseña(ValueObject[str]):
     largoMinimo = 8
     largoMaximo = 20
 
-    def __init__(self, pwd: str) -> None:
-        # VALIDA QUE NO ESTE VACIA
-        if not pwd.strip():
-            raise Exception('La contraseña no puede estar vacía')
-        
-        # VALIDAR QUE ES UNA CADENA
-        if type(pwd) != type(''):
-            raise Exception('La contraseña debe ser un string')
+    def __init__(self, pwd: str, raw=False) -> None:
+        """
+        Args:
+            pwd (str): La contraseña
 
-        # VALIDA QUE TENGA EL LARGO CORRECTO
-        if (len(pwd) < Contraseña.largoMinimo or len(pwd) > Contraseña.largoMaximo):
-            raise Exception('La contraseña debe tener entre {0} y {1} caracteres'.format(
-                Contraseña.largoMinimo, Contraseña.largoMaximo))
+            raw (bool, optional): True para guardar la contraseña sin validar ni 
+            hashear. `False` por defecto.
+        """
 
-        super().__init__(self._hashear(pwd))
+        if raw:
+            super().__init__(pwd)
+        else:
+            # VALIDA QUE NO ESTE VACIA
+            if not pwd.strip():
+                raise Exception('La contraseña no puede estar vacía')
+            
+            # VALIDAR QUE ES UNA CADENA
+            if type(pwd) != type(''):
+                raise Exception('La contraseña debe ser un string')
+
+            # VALIDA QUE TENGA EL LARGO CORRECTO
+            if (len(pwd) < Contraseña.largoMinimo or len(pwd) > Contraseña.largoMaximo):
+                raise Exception('La contraseña debe tener entre {0} y {1} caracteres'.format(
+                    Contraseña.largoMinimo, Contraseña.largoMaximo))
+
+            super().__init__(self._hashear(pwd))
 
     def _hashear(self, pwd: str) -> str:
         # Fuente para hashear: https://recursospython.com/guias-y-manuales/hashlib-md5-sha/
