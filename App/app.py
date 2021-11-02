@@ -35,11 +35,15 @@ registrarme.navMenu() \
     .agregarRuta('dashboard', imc) \
     .agregarRuta('menu_deslogueado', menuDeslogueado) \
 
+registrarme.navMenu() \
+    .agregarRuta('menu_deslogueado', menuDeslogueado) \
+
 imc.navMenu() \
     .agregarRuta('menu_logueado', menuLogueado) \
 
 menuDeslogueado.navMenu() \
-    .agregarRuta('registrarme', registrarme, 'Registrarme')\
+    .agregarRuta('ingresar', ingresar, 'Ingresar') \
+    .agregarRuta('registrarme', registrarme, 'Registrarme') \
     .agregarRuta('salir', salir, 'Salir') \
 
 menuLogueado.navMenu() \
