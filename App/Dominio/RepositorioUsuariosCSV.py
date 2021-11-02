@@ -16,10 +16,11 @@ class RepositorioUsuariosCSV(RepositorioUsuarios):
             # Crea directorios padre
             os.makedirs(os.path.dirname(self._rutaArchivo))
 
-            # Escribe las cabeceras
+            # Escribe las cabeceras del CSV
             with open(self._rutaArchivo, mode='a') as archivoUsuarios:
                 writer = csv.writer(archivoUsuarios)
-                writer.writerow(['correo', 'contraseña'])
+                writer.writerow(['correo', 'nombre', 'apellido',
+                                'edad', 'sexo', 'contraseña'])
 
     def guardar(self, usuario: Usuario) -> None:
         # VERIFICA QUE EL CORREO NO ESTE EN USO
@@ -31,7 +32,14 @@ class RepositorioUsuariosCSV(RepositorioUsuarios):
         with open(self._rutaArchivo, mode='a') as archivoUsuarios:
             writer = csv.writer(archivoUsuarios)
 
-            writer.writerow([usuario.correo(), usuario._contraseña.valor()])
+            writer.writerow([
+                str(usuario.correo),
+                str(usuario.nombre),
+                str(usuario.apellido),
+                str(usuario.edad),
+                str(usuario.sexo),
+                str(usuario._contraseña)
+            ])
 
     def buscar(self, correo: str) -> Union[Usuario, None]:
         with open(self._rutaArchivo, mode='r') as archivoUsuarios:
