@@ -12,13 +12,13 @@ class IMC:
         
     
     def calcularIMC(self):
-        return round(peso.valor()/altura.valor()**2,1)
+        return round(self._peso.valor()/self._altura.valor()**2,1)
 
     def evaluarIMC(self):
          
         valor_imc = self.calcularIMC()
 
-        if sexo.esFemenino():
+        if self._sexo.esFemenino():
             if valor_imc < 20:
                 return 'Bajo peso'
             elif valor_imc > 20 and valor_imc <= 23.9:
@@ -30,7 +30,7 @@ class IMC:
             else:
                 return 'Obesidad muy severa'
 
-        if sexo.esMasculino():
+        if self._sexo.esMasculino():
             if valor_imc < 20:
                 return 'Bajo peso'
             elif valor_imc > 20 and valor_imc <= 24.9:

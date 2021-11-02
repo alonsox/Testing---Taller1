@@ -2,7 +2,7 @@ from typing import Union
 from Dominio.ValueObject import ValueObject
 
 
-class Peso(ValueObject[float]):
+class Altura(ValueObject[float]):
     def __init__(self, altura: Union[float,int]) -> None:
         # VALIDAR QUE SEA UN NUMERO DECIMAL
         if type(altura) != type(1) or type(altura) != type(1.1):
