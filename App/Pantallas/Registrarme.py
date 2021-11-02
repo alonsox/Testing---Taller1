@@ -5,7 +5,7 @@ from Dominio.Correo import Correo
 from Dominio.Contraseña import Contraseña
 from Dominio.RepositorioUsuarios import RepositorioUsuarios
 from Pantallas.Pantalla import Pantalla
-from Utilidades.Otros import limpiarPantalla, tryWhileError
+from Utilidades.Otros import tryWhileError
 
 
 class Registrarme(Pantalla):
@@ -14,7 +14,7 @@ class Registrarme(Pantalla):
         self._repoUsuarios = repoUsuarios
 
     def mostrar(self, data: Any = None) -> None:
-        limpiarPantalla()
+        self.limpiar()
         print('REGISTRAR NUEVO USUARIO', end='\n\n')
 
         correo = tryWhileError(self._leerCorreo)
