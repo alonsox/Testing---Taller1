@@ -4,8 +4,8 @@ from Pantallas.Mostrable import Mostrable
 
 class OpcionNavegacion(NamedTuple):
     ruta: str
-    mensaje: str
     mostrable: Mostrable
+    mensajeMenu: str
 
 
 class MenuNavegacion(Mostrable):
@@ -17,9 +17,9 @@ class MenuNavegacion(Mostrable):
         self._descripcion = des
         return self
 
-    def agregar(self, ruta: str, pantalla: Mostrable, mensaje: str = '') -> 'MenuNavegacion':
-        mensaje = mensaje if mensaje else ruta
-        self._opciones.append(OpcionNavegacion(ruta, mensaje, pantalla))
+    def agregarRuta(self, ruta: str, pantalla: Mostrable, mensajeMenu: str = '') -> 'MenuNavegacion':
+        mensajeMenu = mensajeMenu if mensajeMenu else ruta
+        self._opciones.append(OpcionNavegacion(ruta, pantalla, mensajeMenu))
         return self
 
     def navegar(self, ruta: str, data: Any = None) -> None:
@@ -31,7 +31,7 @@ class MenuNavegacion(Mostrable):
         # MOSTRAR OPCIONES
         print(self._descripcion, end='\n\n')
         for indice, opcion in enumerate(self._opciones):
-            print("({0}) {1}".format(indice + 1, opcion.mensaje))
+            print("({0}) {1}".format(indice + 1, opcion.mensajeMenu))
 
         # OBTENER OPCION DEL USUARIO
         print('')

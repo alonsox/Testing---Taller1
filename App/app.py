@@ -19,14 +19,14 @@ menuDeslogueado = MenuDeslogueado()
 
 # NAVEGACION
 registrarme.navMenu() \
-    .agregar('imc', imc) \
+    .agregarRuta('imc', imc) \
 
 imc.navMenu() \
-    .agregar('menu_deslogueado', menuDeslogueado) \
+    .agregarRuta('menu_deslogueado', menuDeslogueado) \
 
 menuDeslogueado.navMenu() \
-    .agregar('registrarme', registrarme, 'Registrarme')\
-    .agregar('salir', salir, 'Salir') \
+    .agregarRuta('registrarme', registrarme, 'Registrarme')\
+    .agregarRuta('salir', salir, 'Salir') \
 
 # INICIAR APLICACION
 menuDeslogueado.mostrar()
