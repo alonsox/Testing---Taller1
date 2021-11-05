@@ -48,4 +48,4 @@ class MenuNavegacion(Mostrable):
                     len(self._opciones)))
 
         # DEVOLVER EL HANDLER ASOCIADO A LA OPCION
-        return self._opciones[opcion - 1].mostrable.mostrar()
+        return self._opciones[opcion - 1].mostrable.mostrar(data)

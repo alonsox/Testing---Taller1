@@ -42,4 +42,4 @@ menuLogueado.navMenu() \
 
 # INICIAR APLICACION
 usuario = Usuario(Correo('a@a.a'), Contraseña('12345678'), Nombre('Nombre'), Apellido('Apellido'), Edad(20), Sexo('F') )
-imc.mostrar(usuario)
+menuLogueado.mostrar(usuario)
