@@ -7,13 +7,7 @@ from Pantallas.MenuLogueado import MenuLogueado
 from Pantallas.CalcularImc import CalcularImc
 from Pantallas.Registrarme import Registrarme
 from Pantallas.Salir import Salir
-from Dominio.Apellido import Apellido
-from Dominio.Edad import Edad
-from Dominio.Nombre import Nombre
-from Dominio.Sexo import Sexo
-from Dominio.Usuario import Usuario
-from Dominio.Correo import Correo
-from Dominio.Contraseña import Contraseña
+
 
 # CONFIGURACION DEPENDENCIAS
 repo = RepositorioUsuariosCSV('DB/usuarios.csv')
@@ -28,12 +22,7 @@ menuLogueado = MenuLogueado()
 
 # NAVEGACION
 ingresar.navMenu() \
-    .agregarRuta('menu_logueado', imc) \
-    .agregarRuta('menu_deslogueado', menuDeslogueado) \
-
-registrarme.navMenu() \
-    .agregarRuta('dashboard', imc) \
-    .agregarRuta('menu_deslogueado', menuDeslogueado) \
+    .agregarRuta('menu_logueado', menuLogueado) \
 
 registrarme.navMenu() \
     .agregarRuta('menu_deslogueado', menuDeslogueado) \
@@ -47,10 +36,9 @@ menuDeslogueado.navMenu() \
     .agregarRuta('salir', salir, 'Salir') \
 
 menuLogueado.navMenu() \
-    .agregarRuta('imc', imc, 'Calcular IMC')\
+    .agregarRuta('imc', imc, 'Calcular IMC') \
     .agregarRuta('salir', salir, 'Salir') \
-    .agregarRuta('menu_deslogueado', menuDeslogueado, 'Log out')\
+    .agregarRuta('menu_deslogueado', menuDeslogueado, 'Log out') \
 
 # INICIAR APLICACION
-# usuario = Usuario(Correo('a@a.a'), Contraseña('12345678'), Nombre('Nombre'), Apellido('Apellido'), Edad(20), Sexo('F') )
 menuDeslogueado.mostrar()
