@@ -1,3 +1,4 @@
+from Pantallas.Ingresar import Ingresar
 from Pantallas.Registrarme import Registrarme
 from Pantallas.Salir import Salir
 from Dominio.RepositorioUsuariosCSV import RepositorioUsuariosCSV
@@ -20,11 +21,16 @@ repo = RepositorioUsuariosCSV('DB/usuarios.csv')
 # CREAR PANTALLAS
 imc = CalcularImc()
 salir = Salir()
+ingresar = Ingresar(repo)
 registrarme = Registrarme(repo)
 menuDeslogueado = MenuDeslogueado()
 menuLogueado = MenuLogueado()
 
 # NAVEGACION
+ingresar.navMenu() \
+    .agregarRuta('menu_logueado', imc) \
+    .agregarRuta('menu_deslogueado', menuDeslogueado) \
+
 registrarme.navMenu() \
     .agregarRuta('imc', imc) \
 
@@ -41,5 +47,5 @@ menuLogueado.navMenu() \
     .agregarRuta('menu_deslogueado', menuDeslogueado, 'Log out')\
 
 # INICIAR APLICACION
-usuario = Usuario(Correo('a@a.a'), Contraseña('12345678'), Nombre('Nombre'), Apellido('Apellido'), Edad(20), Sexo('F') )
-menuLogueado.mostrar(usuario)
+# usuario = Usuario(Correo('a@a.a'), Contraseña('12345678'), Nombre('Nombre'), Apellido('Apellido'), Edad(20), Sexo('F') )
+menuDeslogueado.mostrar()
