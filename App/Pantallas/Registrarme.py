@@ -25,7 +25,7 @@ class Registrarme(Pantalla):
         nombre = tryWhileError(lambda: Nombre(input('Nombre: ')))
         apellido = tryWhileError(lambda: Apellido(input('Apellido: ')))
         correo = tryWhileError(self._leerCorreo)
-        sexo = tryWhileError(lambda: Sexo(input('Sexo: ')))
+        sexo = tryWhileError(lambda: Sexo(input('Sexo [F/M]: ')))
         edad = tryWhileError(lambda: Edad(input('Edad: ')))
         contraseña = tryWhileError(lambda: Contraseña(getpass("Contraseña: ")))
 
@@ -35,12 +35,13 @@ class Registrarme(Pantalla):
         # GUARDAR USUARIO
         try:
             self._repoUsuarios.guardar(usuario)
-            print('Usuario creado correctamente')
-            print('Presione enter para continuar...')
-            self.navegar('menu_deslogueado', usuario)
-        except:
-            print('Hubo un error al crear el usuario.')
-            print('Presione enter para volver al menu principal...')
+            print('')
+            print('USUARIO CREADO CORRECTAMENTE :)', end='\n\n')
+            input('Presione enter para continuar...')
+            self.navegar('menu_deslogueado')
+        except Exception as e:
+            print('\nHubo un error al crear el usuario :(')
+            input('Presione enter para volver al menu principal...')
             self.navegar('menu_deslogueado')
 
     def _leerCorreo(self) -> Correo:
