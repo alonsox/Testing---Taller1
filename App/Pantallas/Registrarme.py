@@ -25,8 +25,8 @@ class Registrarme(Pantalla):
         nombre = tryWhileError(lambda: Nombre(input('Nombre: ')))
         apellido = tryWhileError(lambda: Apellido(input('Apellido: ')))
         correo = tryWhileError(self._leerCorreo)
-        edad = tryWhileError(lambda: Edad(int(input('Edad: '))))    # TODO: revisar cuando edad no es un numero
         sexo = tryWhileError(lambda: Sexo(input('Sexo: ')))
+        edad = tryWhileError(lambda: Edad(input('Edad: ')))
         contraseña = tryWhileError(lambda: Contraseña(getpass("Contraseña: ")))
 
         # CREAR USUARIO

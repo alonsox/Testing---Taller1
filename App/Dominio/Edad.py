@@ -1,8 +1,16 @@
+from typing import Union
 from Dominio.ValueObject import ValueObject
 
 
 class Edad(ValueObject[int]):
-    def __init__(self, edad: int) -> None:
+    def __init__(self, edad: Union[int, str]) -> None:
+        # EDAD RECIBIDA COMO UN STRING
+        if type(edad) == type(''):
+            try:
+                edad = int(edad)
+            except:
+                raise Exception('La edad debe ser un número entero')
+
         # VALIDAR QUE SEA UN NUMERO ENTERO
         if type(edad) != type(1):
             raise Exception('La edad debe ser un número entero')
