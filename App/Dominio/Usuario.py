@@ -26,7 +26,7 @@ class Usuario:
         return self._contraseña.validar(pwd)
 
     def nombreCompleto(self) -> str:
-        return "{0}, {1}".format(self.apellido, self.nombre)
+        return f"{self.nombre} {self.apellido}"
 
     def of(correo: str,
            contraseña: str,
