@@ -23,9 +23,9 @@ Python 3.8.10
 
 Eso quiere decir que Python esta dentro del PATH. En caso de que no lo este o no sepa como incluirlo en el PATH se pueden consultar los siguientes links para realizarlo:
 
-+ [Agregar Python al PATH en Windows]([https://link](https://tecnoloco.istocks.club/como-agregar-python-a-la-variable-path-de-windows-wiki-util/2020-10-14/))
++ [Agregar Python al PATH en Windows](https://tecnoloco.istocks.club/como-agregar-python-a-la-variable-path-de-windows-wiki-util/2020-10-14/)
 
-+ [Agregar Python al PATH en MacOS]([https://link](https://www.educative.io/edpresso/how-to-add-python-to-the-path-variable-in-mac))
++ [Agregar Python al PATH en MacOS](https://www.educative.io/edpresso/how-to-add-python-to-the-path-variable-in-mac)
 
 + [Agregar Python al PATH en Linux](https://www.edureka.co/blog/add-python-to-path/)
 
