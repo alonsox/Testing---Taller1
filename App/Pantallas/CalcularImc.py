@@ -34,7 +34,7 @@ class CalcularImc(Pantalla):
         print(f'Peso  : {altura} Kg')
         print(f'Altura: {peso} m')
         print(f'IMC   : {calculadoraIMC.calcularIMC()}')
-        print(f'Estado: {calculadoraIMC.evaluarIMC()}', end='\n\n')
+        print(f'Estado: {calculadoraIMC.evaluarIMC().upper()}', end='\n\n')
 
         input('Presione ENTER para volver al menu principal...')
         self.navegar('menu_logueado', usuario)
