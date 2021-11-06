@@ -7,3 +7,4 @@ class MenuLogueado(Pantalla):
         self.limpiar()
         print(f'Bienvenido {str(usuario.nombre)}', end='\n\n')
         self.navMenu().descripcion('MENU LOGUEADO').mostrar(usuario)
+        

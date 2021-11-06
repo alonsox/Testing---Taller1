@@ -10,8 +10,8 @@ class CalcularImc(Pantalla):
     def mostrar(self, usuario: Usuario) -> None:
         self.limpiar()
         print(f'Calculando IMC para {str(usuario.nombre)}', end='\n\n')
-        altura = tryWhileError(lambda:Altura(input("Altura: ")))
-        peso = tryWhileError(lambda:Peso(input("Peso: ")))
+        altura = tryWhileError(lambda:Altura(input("Altura (Metros): ")))
+        peso = tryWhileError(lambda:Peso(input("Peso (KG): ")))
         calculadoraIMC = IMC(altura,peso,usuario.sexo)
         print(f"Tu índice de masa corporal es: {calculadoraIMC.calcularIMC()}")
         print(f"Tu estado es: {calculadoraIMC.evaluarIMC()}")
