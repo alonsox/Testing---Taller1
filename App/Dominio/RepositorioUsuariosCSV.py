@@ -18,7 +18,7 @@ class RepositorioUsuariosCSV(RepositorioUsuarios):
             with open(self._rutaArchivo, mode='a') as archivoUsuarios:
                 writer = csv.writer(archivoUsuarios)
                 writer.writerow(['correo', 'nombre', 'apellido',
-                                'edad', 'sexo', 'contraseña'])
+                                'edad', 'sexo', 'contrasena'])
 
     def guardar(self, usuario: Usuario) -> None:
         # VERIFICA QUE EL CORREO NO ESTE EN USO
@@ -47,10 +47,10 @@ class RepositorioUsuariosCSV(RepositorioUsuarios):
                 if (row['correo'] == correo):
                     return Usuario.of(
                         row['correo'],
-                        row['contraseña'],
+                        row['contrasena'],
                         row['nombre'],
                         row['apellido'],
-                        int(row['edad']),
+                        row['edad'],
                         row['sexo'],
                     )
             else:
