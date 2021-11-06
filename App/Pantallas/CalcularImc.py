@@ -28,7 +28,7 @@ class CalcularImc(Pantalla):
         print(f'Edad  : {usuario.edad}')
         print(f'Sexo  : {usuario.sexo}')
         print(f'Fecha : {fecha_peso.strftime("%a %d/%m/%Y")}')
-        print(f'Hora  : {fecha_peso.strftime("%H:%M")}', end='\n\n')
+        print(f'Hora  : {fecha_peso.strftime("%I:%M %p")}', end='\n\n')
 
         print('RESULTADOS IMC')
         print(f'Peso  : {altura} Kg')
@@ -44,4 +44,4 @@ class CalcularImc(Pantalla):
             fecha = str(input('Fecha y hora del peso [dd/mm/yyyy hh:mm]: '))
             return datetime.strptime(fecha, "%d/%m/%Y %H:%M")
         except:
-            raise Exception('Formato inválido. Días, meses y horas menores a 10 deben ir con un 0 adelante.')
+            raise Exception('Formato inválido.')
