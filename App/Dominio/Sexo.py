@@ -17,3 +17,6 @@ class Sexo(ValueObject[str]):
 
     def esMasculino(self) -> bool:
         return self.valor() == 'M'
+
+    def __str__(self) -> str:
+        return 'Femenino' if self.esFemenino() else 'Masculino'
