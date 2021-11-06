@@ -31,12 +31,12 @@ class RepositorioUsuariosCSV(RepositorioUsuarios):
             writer = csv.writer(archivoUsuarios)
 
             writer.writerow([
-                str(usuario.correo),
-                str(usuario.nombre),
-                str(usuario.apellido),
-                str(usuario.edad),
-                str(usuario.sexo),
-                str(usuario._contraseña)
+                str(usuario.correo.valor()),
+                str(usuario.nombre.valor()),
+                str(usuario.apellido.valor()),
+                str(usuario.edad.valor()),
+                str(usuario.sexo.valor()),
+                str(usuario._contraseña.valor())
             ])
 
     def buscar(self, correo: str) -> Union[Usuario, None]:

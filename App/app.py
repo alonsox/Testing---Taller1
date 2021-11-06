@@ -23,6 +23,7 @@ menuLogueado = MenuLogueado()
 # NAVEGACION
 ingresar.navMenu() \
     .agregarRuta('menu_logueado', menuLogueado) \
+    .agregarRuta('menu_deslogueado', menuDeslogueado) \
 
 registrarme.navMenu() \
     .agregarRuta('menu_deslogueado', menuDeslogueado) \
@@ -37,8 +38,8 @@ menuDeslogueado.navMenu() \
 
 menuLogueado.navMenu() \
     .agregarRuta('imc', imc, 'Calcular IMC') \
-    .agregarRuta('salir', salir, 'Salir') \
     .agregarRuta('menu_deslogueado', menuDeslogueado, 'Log out') \
+    .agregarRuta('salir', salir, 'Salir') \
 
 # INICIAR APLICACION
 menuDeslogueado.mostrar()

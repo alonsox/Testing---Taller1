@@ -37,11 +37,11 @@ class Registrarme(Pantalla):
             self._repoUsuarios.guardar(usuario)
             print('')
             print('USUARIO CREADO CORRECTAMENTE :)', end='\n\n')
-            input('Presione enter para continuar...')
+            input('Presione ENTER para continuar...')
             self.navegar('menu_deslogueado')
         except Exception as e:
             print('\nHubo un error al crear el usuario :(')
-            input('Presione enter para volver al menu principal...')
+            input('Presione ENTER para volver al menu principal...')
             self.navegar('menu_deslogueado')
 
     def _leerCorreo(self) -> Correo:

@@ -25,5 +25,5 @@ class Ingresar(Pantalla):
             self.navegar('menu_logueado', usuario)
         else:
             print('\nDATOS DE INGRESO INVÁLIDOS', end='\n\n')
-            input('Presione enter para volver al menú principal...')
+            input('Presione ENTER para volver al menú principal...')
             self.navegar('menu_deslogueado')
