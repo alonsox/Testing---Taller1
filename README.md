@@ -73,6 +73,10 @@ En caso de que no lo este o no sepa como incluirlo en el PATH se pueden consulta
     python App/app.py 
     ```
 
+## Documentación 
+
+Se puede consultar la documentación de este proyecto en la carpeta `Docs/`.
+
 ## Integrantes
 
 - Nicolás Muñoz
