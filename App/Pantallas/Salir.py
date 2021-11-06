@@ -5,5 +5,5 @@ from Pantallas.Pantalla import Pantalla
 
 class Salir(Pantalla):
     def mostrar(self, data: Any = None) -> None:
-        print('Chao con vo loco, no estoy ni ahi')
+        print('Nos vemos pronto!!')
         sys.exit(0)

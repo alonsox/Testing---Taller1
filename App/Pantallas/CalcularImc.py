@@ -13,7 +13,7 @@ class CalcularImc(Pantalla):
         altura = tryWhileError(lambda:Altura(input("Altura: ")))
         peso = tryWhileError(lambda:Peso(input("Peso: ")))
         calculadoraIMC = IMC(altura,peso,usuario.sexo)
-        print(f"Tu IMC es: {calculadoraIMC.calcularIMC()}")
+        print(f"Tu índice de masa corporal es: {calculadoraIMC.calcularIMC()}")
         print(f"Tu estado es: {calculadoraIMC.evaluarIMC()}")
 
         input('Presiona enter para volver al menu principal...')
