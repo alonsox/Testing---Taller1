@@ -6,7 +6,7 @@
 - Python 3.8 o superior 
 - Git 
 
-**Importante:** Python debe estar instalado en el PATH del sistema operativo correspondiente. 
+**Importante: Python y GIT debe estar instalado en el PATH del sistema operativo correspondiente. Se recomienda usar GIT CMD el cual queda disponible finalizando la instalacion de GIT.**
 
 Se puede comprobar que Python está dentro del PATH con el siguiente comando: 
 
@@ -20,14 +20,31 @@ Si el comando muestra una salida como la siguiente:
 ``` 
 Python 3.8.10
 ``` 
+Eso quiere decir que Python esta dentro del PATH. 
 
-Eso quiere decir que Python esta dentro del PATH. En caso de que no lo este o no sepa como incluirlo en el PATH se pueden consultar los siguientes links para realizarlo:
+Se puede comprobar que GIT está dentro del PATH con el siguiente comando: 
+
+```bash 
+git --version 
+
+``` 
+
+Si el comando muestra una salida como la siguiente: 
+
+``` 
+git version 2.33.1.windows.1
+``` 
+Eso quiere decir que GIT esta dentro del PATH. 
+
+En caso de que no lo este o no sepa como incluirlo en el PATH se pueden consultar los siguientes links para realizarlo:
 
 + [Agregar Python al PATH en Windows](https://tecnoloco.istocks.club/como-agregar-python-a-la-variable-path-de-windows-wiki-util/2020-10-14/)
 
 + [Agregar Python al PATH en MacOS](https://www.educative.io/edpresso/how-to-add-python-to-the-path-variable-in-mac)
 
 + [Agregar Python al PATH en Linux](https://www.edureka.co/blog/add-python-to-path/)
+
++ [Instalar GIT](https://git-scm.com/download/win)
 
 
 ## Instalación y ejecución
